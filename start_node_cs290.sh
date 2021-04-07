@@ -18,7 +18,10 @@ echo Shutting down previous forever instances
 ~/courses/CS290/setup/diagnostic/node_modules/forever/bin/forever stopall
 
 echo Starting Node
-~/courses/CS290/setup/diagnostic/node_modules/forever/bin/forever start ~/courses/CS290/setup/diagnostic/diagnostic.js $port
+WD=$PWD
+cd ~/courses/CS290/setup/diagnostic
+~/courses/CS290/setup/diagnostic/node_modules/forever/bin/forever start diagnostic.js $port
+cd $WD
 if [ $? -eq 0 ]
     then
         echo Node successfully started.
